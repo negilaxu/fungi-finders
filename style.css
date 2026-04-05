@@ -181,6 +181,15 @@
 }
 
 @layer layout {
+    .flow > * + * {
+        margin-top: var(--flow-spacer, 1em);
+    }
+    /* .flow > * + * "selects everything except the first direct child (* + *)" || alternatively we can use .flow > where:not(:first-child) to achieve same thing */
+
+    .grid-flow {
+        display: grid;
+        gap: var(--grid-flow-gap, 1rem);
+    }
 
     .equal-columns {
         display: grid;
