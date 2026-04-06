@@ -362,7 +362,7 @@
         font-size: var(--font-size-md);
         color: var(--text-high-contrast);
         background-image: url(/assets/hero.webp);
-        background-position: center;
+        background-size: cover;
     }
 
     .hero__title {
