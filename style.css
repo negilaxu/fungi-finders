@@ -74,36 +74,36 @@
 
 @layer base {
     :root {
-      --clr-white: hsl(0, 0%, 100%);
-      --clr-gray-100: hsl(0, 2%, 79%);
-      --clr-brand-400: hsl(25, 88%, 75%);
-      --clr-brand-500: hsl(25, 88%, 66%);
-      --clr-green-400: hsl(143, 19%, 49%);
-      --clr-green-500: hsl(143, 38%, 37%);
-      --clr-green-600: hsl(145, 29%, 19%);
-      --clr-brown-500: hsl(10, 5%, 25%);
-      --clr-brown-600: hsl(9, 7%, 21%);
-      --clr-brown-700: hsl(9, 8%, 16%);
-      --clr-brown-800: hsl(0, 6%, 15%);
-      --clr-brown-900: hsl(0, 6%, 13%);
+        --clr-white: hsl(0, 0%, 100%);
+        --clr-gray-100: hsl(0, 2%, 79%);
+        --clr-brand-400: hsl(25, 88%, 75%);
+        --clr-brand-500: hsl(25, 88%, 66%);
+        --clr-green-400: hsl(143, 19%, 49%);
+        --clr-green-500: hsl(143, 38%, 37%);
+        --clr-green-600: hsl(145, 29%, 19%);
+        --clr-brown-500: hsl(10, 5%, 25%);
+        --clr-brown-600: hsl(9, 7%, 21%);
+        --clr-brown-700: hsl(9, 8%, 16%);
+        --clr-brown-800: hsl(0, 6%, 15%);
+        --clr-brown-900: hsl(0, 6%, 13%);
 
-      --clr-orange-500: hsl(28, 43%, 28%);
-      --clr-red-500: hsl(359, 34%, 24%);
-      --clr-teal-500: hsl(186, 42%, 25%);
+        --clr-orange-500: hsl(28, 43%, 28%);
+        --clr-red-500: hsl(359, 34%, 24%);
+        --clr-teal-500: hsl(186, 42%, 25%);
 
-      --ff-heading: "Outfit", sans-serif;
-      --ff-body: "Fira Sans", sans-serif;
+        --ff-heading: "Outfit", sans-serif;
+        --ff-body: "Fira Sans", sans-serif;
 
-      --fs-300: 0.875rem;
-      --fs-400: 1rem;
-      --fs-500: 1.125rem;
-      --fs-600: 1.25rem;
-      --fs-700: 1.5rem;
-      --fs-800: 2rem;
-      --fs-900: 3.75rem;
-      --fs-1000: 3.75rem;
+        --fs-300: 0.875rem;
+        --fs-400: 1rem;
+        --fs-500: 1.125rem;
+        --fs-600: 1.25rem;
+        --fs-700: 1.5rem;
+        --fs-800: 2rem;
+        --fs-900: 3.75rem;
+        --fs-1000: 3.75rem;
 
-      @media (width > 760px) {
+        @media (width > 760px) {
         --fs-300: 0.875rem;
         --fs-400: 1rem;
         --fs-500: 1.25rem;
@@ -144,39 +144,39 @@
         --border-radius-1: 0.25rem;
         --border-radius-2: 0.5rem;
         --border-radius-3: 0.75rem;
-     }
-     html {
-         font-family: var(--ff-body);
-         line-height: 1.6;
-     }
+    }
+    html {
+        font-family: var(--ff-body);
+        line-height: 1.6;
+    }
 
-     body {
-         font-size: var(--font-size-regular);
-         color: var(--text-main);
-         background-color: var(--background-main);
-     }
+    body {
+        font-size: var(--font-size-regular);
+        color: var(--text-main);
+        background-color: var(--background-main);
+    }
 
-     h1, h2, h3, h4 {
+    h1, h2, h3, h4 {
         font-family: var(--ff-heading);
         color: var(--text-high-contrast);
-     }
+    }
 
-     h1 {
+    h1 {
         font-size: var(--font-size-heading-lg);
-     }
+    }
 
-     a {
+    a {
         color: var(--text-high-contrast);
-     }
+    }
 
-     a:hover,
-     a:focus-visible {
+    a:hover,
+    a:focus-visible {
         color: var(--text-brand-light);
-     }
+    }
 
-     img {
+    img {
         border-radius: var(--border-radius-3);
-     }
+    }
 
 }
 
@@ -254,11 +254,65 @@
         justify-content: space-between;
     }
 
+    [aria-controls="primary-nav"] {
+        z-index: 100;
+        cursor: pointer;
+        background: transparent;
+        border: 0;
+
+        img {
+            border-radius: 0;
+        }
+    }
+
+    [aria-controls="primary-nav"] {
+        display: none;
+    }
+
     .primary-navigation {
         ul {
             display: flex;
             flex-wrap: wrap;
             gap: 0.5rem 1rem;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+
+        @media (width < 760px) {
+            display: none;
+            position: absolute;
+            z-index: 10;
+            top: 0;
+            right: 0;
+            font-size: var(--font-size-lg);
+            font-weight: 700;
+            font-family: var(--ff-heading);
+            background-color: var(--background-accent-main);
+            padding: 2rem;
+            border-radius: 0 0 0 var(--border-radius-3);
+
+            ul {
+                gap: 0;
+                flex-direction: column;
+            }
+
+            li + li {
+                margin-block-start: 1.5rem;
+                padding-block-start: 1.5rem;
+                border-top: 2px solid var(--background-accent-light);
+            }
+        }
+    }
+
+    @media (width < 760px) {
+        [aria-controls="primary-nav"] {
+            display: block;
+        }
+        [aria-expanded="true"] ~ .primary-navigation {
+            display: block;
         }
     }
 
@@ -343,51 +397,51 @@
 @layer utilities {
     .text-center {
     text-align: center;
-  }
+    }
 
-  .text-brand {
+    .text-brand {
     color: var(--text-brand);
-  }
-  .text-high-contrast {
+    }
+    .text-high-contrast {
     color: var(--text-high-contrast);
-  }
+    }
 
-  .section-title {
+    .section-title {
     font-size: var(--font-size-heading-regular);
-  }
+    }
 
-  .background-base {
+    .background-base {
     background-color: var(--background-base);
-  }
-  .background-light {
+    }
+    .background-light {
     background-color: var(--background-light);
-  }
-  .background-extra-light {
+    }
+    .background-extra-light {
     background-color: var(--background-extra-light);
-  }
-  .background-dark {
+    }
+    .background-dark {
     background-color: var(--background-dark);
-  }
-  .background-extra-dark {
+    }
+    .background-extra-dark {
     background-color: var(--background-extra-dark);
-  }
+    }
 
-  .background-accent {
+    .background-accent {
     background-color: var(--background-accent-dark);
-  }
+    }
 
-  .font-size-sm {
+    .font-size-sm {
     font-size: var(--font-size-sm);
-  }
-  .font-size-regular {
+    }
+    .font-size-regular {
     font-size: var(--font-size-regular);
-  }
-  .font-size-md {
+    }
+    .font-size-md {
     font-size: var(--font-size-md);
-  }
-  .font-size-lg {
+    }
+    .font-size-lg {
     font-size: var(--font-size-lg);
-  }
+    }
 
     .visually-hidden {
         clip: rect(0 0 0 0);
