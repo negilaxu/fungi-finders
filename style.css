@@ -199,7 +199,6 @@
         margin-inline: auto;
         padding-inline: var(--wrapper-padding);
         box-sizing: content-box;
-    }
 
     &[data-width="narrow"] {
         --wrapper-max-width: 720px;
@@ -207,7 +206,7 @@
 
     &[data-width="wide"] {
         --wrapper-max-width: 1330px;
-
+    }
     }
 
     .section {
