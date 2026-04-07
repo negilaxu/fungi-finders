@@ -1,3 +1,9 @@
+@view-transition {
+    navigation: auto;
+}
+
+/* above code is supported only in chrome/edge but for firefox/safari support is still pending */
+
 @layer reset {
     *,
     *::before,
