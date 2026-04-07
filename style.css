@@ -435,7 +435,6 @@
                     .card > img {
                         height: 100%;
                         object-fit: cover;
-                        object-position: top left;
                     }
 
                     @media (width > 600px) {
@@ -458,7 +457,7 @@
                         @media(width > 900px) {
                             display: grid;
                             gap: 1rem;
-                            grid-template-columns: 1fr, 1fr;
+                            grid-template-columns: 1fr 1fr;
 
                             img {
                                 grid-column: 1 / 2;
