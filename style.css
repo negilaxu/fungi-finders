@@ -610,3 +610,14 @@
         width: 1px;
     }
 }
+
+/*
+
+1. The down below code is one way to use filtering for css not recommend because of its complexity
+2. The down below code works only for spring season for remaining season we've to add additional code for other seasons
+
+.mushroom-guide:has(#season [value="spring"]:checked)
+    .card:not(:has([data-season="spring"])) {
+        display: none;
+    }
+*/
